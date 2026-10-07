@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gallnut: iron-gall ink, made in Ghent</title>
+  <!-- Fixture for slop_check.py: a committed-colour dark page with a serif display. Fictional product.
+       One of several valid directions (see clean.html and clean-docs.html); do not copy its look or reuse its typeface (slop_check flags that as fixture-face).
+       Per-brief choices: the ink's own blue-black owns the page (committed strategy), a light tint of the same
+       hue is the only interactive colour, Libre Caslon Display at 400 (a light display weight works because the
+       size gap to body is over 3x), square corners, soft `ease` motion, no imagery band alternation. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Libre+Caslon+Text:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ground: #1b2433;        /* iron-gall blue-black as it dries on the page */
+      --ground-raised: #232f42;
+      --ink: #ece9e2;           /* the paper the ink goes on, used as type */
+      --ink-2: #b7bfcc;         /* 8.9:1 on the ground (calc) */
+      --rule: #3a475c;
+      --action: #c9d6e8;        /* a tint of the ground's own hue: the one interactive colour */
+      --on-action: #1b2433;
+      --space-2: 16px; --space-3: 24px; --space-4: 48px; --space-5: 128px;
+      --text-small: 0.875rem; --text-body: 1.125rem; --text-lead: 1.25rem; --text-h2: clamp(2.25rem, 1.4rem + 2vw, 3rem);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--ground);
+      color: var(--ink);
+      font: 400 var(--text-body)/1.6 "Libre Caslon Text", Georgia, serif;
+    }
+    header, main, footer { max-width: 1040px; margin: 0 auto; padding: 0 var(--space-3); }
+    header { display: flex; justify-content: space-between; align-items: baseline; padding-top: var(--space-3); }
+    .wordmark { font-family: "Libre Caslon Display", Georgia, serif; font-size: var(--text-lead); color: var(--ink); text-decoration: none; }
+    header nav a { color: var(--ink-2); margin-left: var(--space-3); }
+    h1, h2 { font-family: "Libre Caslon Display", Georgia, serif; font-weight: 400; margin: 0; text-wrap: balance; }
+    p { text-wrap: pretty; }
+    h1 { font-size: clamp(3rem, 8vw, 6rem); line-height: 1.02; letter-spacing: -0.01em; max-width: 12ch; }
+    h2 { font-size: var(--text-h2); line-height: 1.15; margin-bottom: var(--space-2); }
+    .opening { padding: var(--space-5) 0 var(--space-4); }
+    .lede { font-size: var(--text-lead); color: var(--ink-2); max-width: 40ch; margin: var(--space-3) 0 var(--space-4); }
+    p { max-width: 62ch; }
+    .button {
+      display: inline-block; padding: 12px 24px; background: var(--action); color: var(--on-action);
+      font-weight: 700; text-decoration: none; transition: background-color 240ms ease;
+    }
+    .button:hover { background: var(--ink); }
+    .button:focus-visible, a:focus-visible { outline: 2px solid var(--action); outline-offset: 3px; }
+    figure { margin: 0; }
+    img { width: 100%; height: auto; display: block; }
+    figcaption { font-size: var(--text-small); color: var(--ink-2); margin-top: 8px; }
+    .batch { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); padding: var(--space-5) 0; border-top: 1px solid var(--rule); }
+    dl { display: grid; grid-template-columns: auto 1fr; gap: 8px var(--space-3); margin: 0; font-variant-numeric: tabular-nums; }
+    dt { color: var(--ink-2); }
+    dd { margin: 0; }
+    .order { background: var(--ground-raised); padding: var(--space-4); margin: 0 0 var(--space-5); }
+    footer { color: var(--ink-2); font-size: var(--text-small); padding-bottom: var(--space-4); }
+    @media (max-width: 760px) { .batch { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header>
+    <a class="wordmark" href="/">Gallnut</a>
+    <nav><a href="#batch">This batch</a><a href="#order">Order</a></nav>
+  </header>
+
+  <main>
+    <section class="opening">
+      <h1>Ink that darkens as it dries.</h1>
+      <p class="lede">Iron-gall ink, cooked from oak galls and green vitriol in a kitchen in Ghent. It goes on blue and settles to near-black within a day.</p>
+      <a class="button" href="#order">Order a 50 ml bottle</a>
+    </section>
+
+    <figure>
+      <img src="img/stroke-drying.webp" width="1600" height="900" alt="One pen stroke photographed at one minute, one hour and one day, shifting from blue to blue-black.">
+      <figcaption>The same stroke at one minute, one hour and one day.</figcaption>
+    </figure>
+
+    <section class="batch" id="batch">
+      <div>
+        <h2>Batch 31</h2>
+        <p>Each batch is 140 bottles. Galls are steeped for six weeks before the iron goes in, which is why we only make four batches a year.</p>
+      </div>
+      <dl>
+        <dt>Bottled</dt><dd>2 September</dd>
+        <dt>Bottles</dt><dd>140</dd>
+        <dt>Iron content</dt><dd>0.9 g per 100 ml</dd>
+        <dt>Pens</dt><dd>Dip and fountain pens with steel or gold nibs; flush monthly</dd>
+      </dl>
+    </section>
+
+    <section class="order" id="order">
+      <h2>Order</h2>
+      <p>A 50 ml bottle is EUR 28, shipped in the EU within three days. When batch 31 runs out, the next one is bottled in December.</p>
+      <a class="button" href="/order">Order a 50 ml bottle</a>
+    </section>
+  </main>
+
+  <footer>
+    <p>Gallnut, Brabantdam, Ghent. Iron-gall ink is acidic over decades; we explain archival use on the care page.</p>
+  </footer>
+</body>
+</html>

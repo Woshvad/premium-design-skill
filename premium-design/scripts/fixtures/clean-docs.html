@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Retry policies - Tidewire docs</title>
+  <!-- Fixture for slop_check.py: a dense documentation page (learn surface). Fictional product.
+       One of several valid directions (see clean.html and clean-committed.html); do not copy its look or reuse its typeface (slop_check flags that as fixture-face).
+       Per-brief choices: no hero, sidebar + on-page contents, 16px body at about 70ch, a 1.2 type ratio with no
+       display jump, mono for code only, light with an OS-following dark theme, one moss-green link colour. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;600&family=Atkinson+Hyperlegible+Mono&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light dark;
+      --canvas: #ffffff;
+      --sidebar: #f4f6f3;       /* second surface tier */
+      --code-bg: #f4f6f3;
+      --ink: #1a1f1c;
+      --ink-2: #4f5a54;         /* 7.1:1 on white (calc) */
+      --rule: #dfe4e0;
+      --link: #2f6b4f;          /* moss: the one interactive colour */
+      --space-1: 8px; --space-2: 16px; --space-3: 24px; --space-4: 32px; --space-6: 64px;
+      --text-small: 0.875rem; --text-body: 1rem; --text-h3: 1.2rem; --text-h2: 1.44rem; --text-h1: 1.728rem;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root { --canvas: #141815; --sidebar: #1b201c; --code-bg: #1b201c; --ink: #e6ebe7; --ink-2: #a9b4ad; --rule: #2c332e; --link: #8cc7a6; }
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--canvas); color: var(--ink); font: 400 var(--text-body)/1.6 "Atkinson Hyperlegible Next", system-ui, sans-serif; }
+    .topbar { display: flex; align-items: center; gap: var(--space-3); padding: 12px var(--space-3); border-bottom: 1px solid var(--rule); }
+    .product { font-weight: 600; color: var(--ink); text-decoration: none; }
+    .search { flex: 1; max-width: 420px; padding: 8px 12px; border: 1px solid var(--ink-2); border-radius: 6px; font: inherit; background: var(--canvas); color: var(--ink); }
+    .layout { display: grid; grid-template-columns: 240px minmax(0, 1fr) 200px; }
+    aside.sidebar { background: var(--sidebar); padding: var(--space-3); min-height: 100dvh; font-size: var(--text-small); }
+    .sidebar h2 { font-size: var(--text-small); font-weight: 600; color: var(--ink-2); margin: var(--space-3) 0 var(--space-1); }
+    .sidebar ul, .toc ul { list-style: none; margin: 0; padding: 0; }
+    .sidebar li a, .toc a { display: block; padding: 4px 0; color: var(--ink-2); text-decoration: none; }
+    .sidebar li a[aria-current="page"] { color: var(--link); font-weight: 600; }
+    article { padding: var(--space-4) var(--space-6); max-width: 760px; }
+    h1 { font-size: var(--text-h1); line-height: 1.2; font-weight: 600; margin: var(--space-2) 0; }
+    h2 { font-size: var(--text-h2); line-height: 1.25; font-weight: 600; margin: var(--space-6) 0 var(--space-2); }
+    h3 { font-size: var(--text-h3); line-height: 1.3; font-weight: 600; margin: var(--space-4) 0 var(--space-1); }
+    p, li { max-width: 70ch; }
+    a { color: var(--link); text-underline-offset: 3px; }
+    a:focus-visible, .search:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }
+    .crumbs { font-size: var(--text-small); color: var(--ink-2); }
+    .crumbs a { color: var(--ink-2); }
+    code, pre { font-family: "Atkinson Hyperlegible Mono", ui-monospace, monospace; font-size: 0.9375em; }
+    pre { background: var(--code-bg); padding: var(--space-2); border-radius: 6px; overflow-x: auto; }
+    .table-scroll { overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; font-size: var(--text-small); }
+    th, td { text-align: left; padding: 8px 12px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+    .toc { padding: var(--space-4) var(--space-3); font-size: var(--text-small); }
+    .toc h2 { font-size: var(--text-small); margin: 0 0 var(--space-1); color: var(--ink-2); }
+    @media (max-width: 1000px) { .layout { grid-template-columns: minmax(0, 1fr); } .toc, aside.sidebar { display: none; } article { padding: var(--space-3); } }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <a class="product" href="/docs">Tidewire docs</a>
+    <input class="search" type="search" name="q" placeholder="Search the docs" aria-label="Search the docs">
+  </div>
+  <div class="layout">
+    <aside class="sidebar">
+      <h2>Delivery</h2>
+      <ul>
+        <li><a href="/docs/webhooks">Webhooks</a></li>
+        <li><a href="/docs/retries" aria-current="page">Retry policies</a></li>
+        <li><a href="/docs/signing">Signing requests</a></li>
+      </ul>
+      <h2>Reference</h2>
+      <ul>
+        <li><a href="/docs/api">HTTP API</a></li>
+        <li><a href="/docs/limits">Limits</a></li>
+      </ul>
+    </aside>
+    <article>
+      <nav class="crumbs" aria-label="Breadcrumb"><a href="/docs">Docs</a> / <a href="/docs/webhooks">Delivery</a></nav>
+      <h1>Retry policies</h1>
+      <p>When an endpoint answers with a 5xx status or does not answer within 10 seconds, Tidewire retries the delivery. A policy sets how many attempts are made and how long Tidewire waits between them.</p>
+      <h2 id="default">The default policy</h2>
+      <p>New endpoints retry 8 times with exponential backoff, starting at 30 seconds and capped at 6 hours. The last attempt happens about 13 hours after the first.</p>
+      <pre><code>{
+  "attempts": 8,
+  "backoff": "exponential",
+  "initial_delay_s": 30,
+  "max_delay_s": 21600
+}</code></pre>
+      <h2 id="fields">Fields</h2>
+      <div class="table-scroll">
+      <table>
+        <thead><tr><th>Field</th><th>Type</th><th>Description</th></tr></thead>
+        <tbody>
+          <tr><td><code>attempts</code></td><td>integer, 1 to 20</td><td>Deliveries after the first failure.</td></tr>
+          <tr><td><code>backoff</code></td><td><code>fixed</code> or <code>exponential</code></td><td>How the delay grows between attempts.</td></tr>
+          <tr><td><code>initial_delay_s</code></td><td>integer seconds</td><td>Wait before the first retry.</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <h3>Idempotency</h3>
+      <p>Retries reuse the original <code>Tidewire-Delivery-Id</code> header, so your handler can drop a delivery it has already processed.</p>
+    </article>
+    <nav class="toc" aria-label="On this page">
+      <h2>On this page</h2>
+      <ul><li><a href="#default">The default policy</a></li><li><a href="#fields">Fields</a></li></ul>
+    </nav>
+  </div>
+</body>
+</html>

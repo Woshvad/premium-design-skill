@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NovaFlow AI — Supercharge Your Workflow</title>
+  <!-- Fixture for slop_check.py: a typical one-shot AI SaaS landing page, deliberately full of tells. -->
+  <!-- Design notes (the kind that should live in DESIGN.md, not in shipped markup).
+       Thesis: AI automation for busy teams, with a modern, clean, trustworthy vibe.
+       Reference world: other AI startups. Signature move: the violet gradient.
+       Direction cards: A violet gradient (chosen), B dark glass (rejected), C cream serif (rejected).
+       Values to confirm: every number on the page. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'sans-serif'], mono: ['JetBrains Mono', 'monospace'] },
+          colors: { primary: '#7c3aed' },
+          animation: { float: 'float 6s ease-in-out infinite', glow: 'glow 3s ease-in-out infinite' }
+        }
+      }
+    }
+  </script>
+  <style>
+    :root {
+      --primary: #7c3aed;
+      --accent: #ec4899;
+    }
+    body { background: #ffffff; color: #000000; }
+    .gradient-text {
+      background: linear-gradient(90deg, #8b5cf6 0%, #ec4899 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero-bg {
+      background: radial-gradient(circle at 50% 0%, rgba(139, 92, 246, 0.35), transparent 60%),
+                  linear-gradient(180deg, #faf5ff 0%, #ffffff 100%);
+    }
+    .glass-card {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 24px;
+    }
+    .pricing-card { backdrop-filter: blur(12px); border-radius: 24px; }
+    .btn-primary {
+      background: var(--primary);
+      box-shadow: 0 0 40px rgba(139, 92, 246, 0.6);
+      transition: all 0.3s linear;
+      border-radius: 9999px;
+    }
+    .section-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .caption { font-size: 12px; letter-spacing: -0.02em; }
+    .stat-number { font-size: 48px; letter-spacing: -0.07em; }
+    .card-accent { border-left: 4px solid #8b5cf6; border-radius: 16px; }
+    .step-card { border-radius: 24px; }
+    .faq-item { border-radius: 24px; }
+    .testimonial-card { border-radius: 24px; }
+    .feature-tile { border-radius: 24px; }
+    .accordion-content { overflow: hidden; transition: max-height 0.4s ease; }
+    .tagline { font-family: 'JetBrains Mono', monospace; }
+    .orb { position: absolute; width: 480px; height: 480px; border-radius: 50%; background: #a855f7; filter: blur(120px); opacity: .4; }
+    @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
+    @keyframes glow { 0%, 100% { box-shadow: 0 0 20px #8b5cf6; } 50% { box-shadow: 0 0 60px #ec4899; } }
+    @keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
+    @keyframes gradient-shift { 0% { background-position: 0% 50%; } 100% { background-position: 100% 50%; } }
+    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    .logo-marquee { animation: marquee 30s linear infinite; }
+    .shimmer-btn { animation: shimmer 2.5s infinite; }
+    .animated-gradient { animation: gradient-shift 8s ease infinite; }
+  </style>
+</head>
+<body class="bg-white text-gray-900 font-sans antialiased">
+
+  <!-- Announcement bar -->
+  <div class="announcement-bar bg-gradient-to-r from-violet-600 to-indigo-600 text-white text-center text-sm py-2">
+    🎉 NovaFlow 2.0 is here — read the launch post →
+  </div>
+
+  <!-- Nav -->
+  <header class="sticky top-0 z-50 backdrop-blur-lg bg-white/70 border-b border-gray-100">
+    <nav class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+      <a href="#" class="text-xl font-bold">✨ NovaFlow</a>
+      <ul class="hidden md:flex gap-8 text-sm text-gray-600">
+        <li><a href="#features">🚀 Features</a></li>
+        <li><a href="#how-it-works">⚡ How it works</a></li>
+        <li><a href="#pricing">💎 Pricing</a></li>
+        <li><a href="#faq">❓ FAQ</a></li>
+      </ul>
+      <a href="#" class="btn-primary text-white px-5 py-2 text-sm font-semibold">Get Started</a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero hero-bg relative overflow-hidden min-h-screen flex items-center">
+    <div class="absolute -top-40 left-1/2 -translate-x-1/2 h-96 w-96 rounded-full bg-purple-500/30 blur-3xl animate-pulse"></div>
+    <div class="orb"></div>
+    <div class="relative max-w-4xl mx-auto px-6 text-center" data-aos="fade-up">
+      <div class="inline-flex items-center gap-2 rounded-full border border-violet-200 bg-violet-50 px-3 py-1 text-xs font-medium text-violet-700 mb-6">✨ Introducing NovaFlow AI</div>
+      <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight text-gray-900 mb-6">
+        Supercharge your workflow with <span class="bg-gradient-to-r from-violet-600 to-fuchsia-500 bg-clip-text text-transparent">AI-powered</span> automation
+      </h1>
+      <p class="tagline text-lg text-gray-600 mb-10 max-w-2xl mx-auto">Not another productivity tool. Just pure, effortless flow — powered by next-gen AI that adapts to the way you work.</p>
+      <div class="flex justify-center gap-4">
+        <a href="#" class="btn-primary shimmer-btn rounded-full bg-violet-600 px-8 py-4 text-white font-semibold shadow-lg shadow-violet-500/50 hover:scale-105 transition">Get started for free</a>
+        <a href="#" class="rounded-full border border-gray-300 px-8 py-4 font-semibold hover:bg-gray-50">▶ Watch demo</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Logo cloud -->
+  <section class="logo-cloud py-12 border-y border-gray-100">
+    <p class="caption text-center text-gray-500 mb-6">Trusted by 10,000+ teams worldwide</p>
+    <div class="logo-marquee flex gap-16 opacity-60">
+      <img src="https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?w=200" alt="Acme Inc">
+      <img src="https://via.placeholder.com/120x40" alt="Logo">
+      <img src="https://via.placeholder.com/120x40" alt="Logo">
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="py-20">
+    <div class="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+      <div><div class="stat-number font-bold text-violet-600">10K+</div><div class="text-gray-500 text-sm">Active users</div></div>
+      <div><div class="stat-number font-bold text-pink-500">99.9%</div><div class="text-gray-500 text-sm">Uptime</div></div>
+      <div><div class="stat-number font-bold text-blue-500">4.9/5</div><div class="text-gray-500 text-sm">Rating</div></div>
+      <div><div class="stat-number font-bold text-cyan-500">24/7</div><div class="text-gray-500 text-sm">Support</div></div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section id="features" class="py-24 bg-gradient-to-b from-white to-violet-50">
+    <div class="max-w-6xl mx-auto px-6">
+      <p class="section-label text-violet-600 text-center mb-3">Features</p>
+      <h2 class="text-4xl font-bold text-center mb-4">Everything you need to <span class="text-violet-600">scale faster</span></h2>
+      <p class="text-center text-gray-600 mb-16">Unlock the full potential of your team with world-class, cutting-edge tools.</p>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="glass-card feature-tile p-8 rounded-2xl" data-aos="fade-up">
+          <div class="w-12 h-12 rounded-2xl bg-blue-100 text-blue-600 flex items-center justify-center text-2xl mb-6">⚡</div>
+          <h3 class="text-xl font-semibold mb-3">Lightning Fast</h3>
+          <p class="text-sm text-gray-600">Experience blazing-fast performance that scales seamlessly with your growing team, so every workflow runs in milliseconds and nobody ever waits for a page to load again.</p>
+        </div>
+        <div class="glass-card feature-tile p-8 rounded-2xl" data-aos="fade-up">
+          <div class="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-2xl mb-6">🔒</div>
+          <h3 class="text-xl font-semibold mb-3">Enterprise Security</h3>
+          <p class="text-sm text-gray-600">Bank-grade encryption and SOC 2 compliance keep your data safe, so you can focus on what matters most while we handle the hard parts of security for you.</p>
+        </div>
+        <div class="glass-card feature-tile p-8 rounded-2xl" data-aos="fade-up">
+          <div class="w-12 h-12 rounded-2xl bg-orange-100 text-orange-600 flex items-center justify-center text-2xl mb-6">🚀</div>
+          <h3 class="text-xl font-semibold mb-3">AI Automation</h3>
+          <p class="text-sm text-gray-600">Let our revolutionary AI handle the repetitive work and streamline every process, freeing your team to focus on creative, high-impact work that truly moves the needle.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="py-24">
+    <div class="max-w-5xl mx-auto px-6">
+      <p class="section-label text-center text-violet-600 mb-3">Process</p>
+      <h2 class="text-4xl font-bold text-center mb-16 font-mono">How it works in 3 simple steps</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="step-card card-accent p-6 bg-white shadow-sm">
+          <span class="text-xs uppercase tracking-widest text-violet-500 font-mono">01</span>
+          <h3 class="font-semibold mt-2">Connect your tools</h3>
+          <p class="caption text-gray-500 mt-2">Integrate with 100+ apps in one click.</p>
+        </div>
+        <div class="step-card card-accent p-6 bg-white shadow-sm">
+          <span class="text-xs uppercase tracking-widest text-violet-500 font-mono">02</span>
+          <h3 class="font-semibold mt-2">Train your AI</h3>
+          <p class="caption text-gray-500 mt-2">NovaFlow learns how your team works.</p>
+        </div>
+        <div class="step-card card-accent p-6 bg-white shadow-sm">
+          <span class="text-xs uppercase tracking-widest text-violet-500 font-mono">03</span>
+          <h3 class="font-semibold mt-2">Watch it work</h3>
+          <p class="caption text-gray-500 mt-2">Sit back while automation takes over.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="py-24 bg-gray-950 text-white">
+    <div class="max-w-6xl mx-auto px-6">
+      <p class="section-label text-center text-violet-400 mb-3">Testimonials</p>
+      <h2 class="text-4xl font-bold text-center mb-16">What our customers are saying</h2>
+      <div class="grid md:grid-cols-3 gap-8 -rotate-1">
+        <div class="testimonial-card glass-card p-8 rounded-2xl">
+          <p class="text-gray-300 mb-6">"NovaFlow is a total game-changer for our team. We 10x'd our output in a week."</p>
+          <div class="flex items-center gap-3"><img src="https://i.pravatar.cc/48?img=1" class="rounded-full" alt=""><div><p class="font-semibold">John Doe</p><p class="text-xs text-gray-400 tracking-tight">CEO, Acme Corp</p></div></div>
+        </div>
+        <div class="testimonial-card glass-card p-8 rounded-2xl">
+          <p class="text-gray-300 mb-6">"The seamless onboarding made adoption effortless across the whole company."</p>
+          <div class="flex items-center gap-3"><img src="https://i.pravatar.cc/48?img=2" class="rounded-full" alt=""><div><p class="font-semibold">Jane Smith</p><p class="text-xs text-gray-400 tracking-tight">CTO, Nexus</p></div></div>
+        </div>
+        <div class="testimonial-card glass-card p-8 rounded-2xl">
+          <p class="text-gray-300 mb-6">"We streamlined everything. Our workflow has never been this smooth."</p>
+          <div class="flex items-center gap-3"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=48" class="rounded-full" alt=""><div><p class="font-semibold">Alex Rivera</p><p class="text-xs text-gray-400 tracking-tight">Head of Ops, SmartFlow</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Integrations -->
+  <section id="integrations" class="py-24">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-4xl font-bold text-center mb-16">Works with your stack</h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div><h3 class="font-semibold">Slack</h3><p class="text-gray-500">Get alerts and approve automations without leaving the channel.</p></div>
+        <div><h3 class="font-semibold">Notion</h3><p class="text-gray-500">Turn every meeting note into tasks that run on their own schedule.</p></div>
+        <div><h3 class="font-semibold">HubSpot</h3><p class="text-gray-500">Sync every lead and every deal stage with no setup, just results.</p></div>
+        <div><h3 class="font-semibold">Gmail</h3><p class="text-gray-500">Draft replies with AI and send them when your team approves.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section id="pricing" class="py-24">
+    <div class="max-w-6xl mx-auto px-6">
+      <p class="section-label text-center text-violet-600 mb-3">Pricing</p>
+      <h2 class="text-4xl font-bold text-center mb-16">Simple, transparent pricing</h2>
+      <label class="block text-center mb-8">Seats <input type="range" min="1" max="50" value="5" style="accent-color: #7c3aed"></label>
+      <div class="grid md:grid-cols-3 gap-8 items-center">
+        <div class="pricing-card p-8 border border-gray-200 rounded-2xl"><h3 class="font-semibold">Starter</h3><p class="text-4xl font-bold mt-4">$19<span class="text-base text-gray-500">/mo</span></p><button class="w-full mt-8 rounded-full border py-3">Get started</button></div>
+        <div class="pricing-card p-8 rounded-2xl bg-gradient-to-b from-violet-600 to-indigo-700 text-white scale-105 shadow-2xl shadow-violet-500/40">
+          <span class="rounded-full bg-white/20 px-3 py-1 text-xs uppercase tracking-wider">Most popular</span>
+          <h3 class="font-semibold mt-4">Pro</h3><p class="text-4xl font-bold mt-4">$49<span class="text-base">/mo</span></p>
+          <button class="w-full mt-8 rounded-full bg-white text-violet-700 py-3 font-semibold">Get started</button>
+        </div>
+        <div class="pricing-card p-8 border border-gray-200 rounded-2xl"><h3 class="font-semibold">Enterprise</h3><p class="text-4xl font-bold mt-4">Custom</p><button class="w-full mt-8 rounded-full border py-3">Contact sales</button></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="py-24">
+    <div class="max-w-3xl mx-auto px-6">
+      <h2 class="text-4xl font-bold text-center mb-12">Frequently asked questions</h2>
+      <div class="faq-item p-6 border border-gray-200 rounded-2xl mb-4">
+        <h3 class="font-semibold">What makes NovaFlow different?</h3>
+        <div class="accordion-content"><p class="text-gray-600 mt-2">Our state-of-the-art AI is designed to elevate every part of your stack — from planning to delivery — in one all-in-one platform.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-24 animated-gradient bg-gradient-to-r from-violet-600 via-fuchsia-500 to-pink-500 text-white text-center rounded-2xl mx-6">
+    <h2 class="text-4xl font-bold mb-4">Ready to transform your workflow?</h2>
+    <p class="mb-8 opacity-90">Join thousands of teams who unleash their potential with NovaFlow.</p>
+    <form class="flex justify-center gap-3"><input type="email" placeholder="you@company.com" class="rounded-full px-5 py-3 text-gray-900"><button class="rounded-full bg-white text-violet-700 px-6 py-3 font-semibold animate-bounce">Submit</button></form>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-16 border-t border-gray-100">
+    <div class="max-w-6xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-sm">
+      <div><h4 class="font-semibold mb-3">Product</h4><ul><li>Features</li><li>Pricing</li></ul></div>
+      <div><h4 class="font-semibold mb-3">Company</h4><ul><li>About</li><li>Careers</li></ul></div>
+      <div><h4 class="font-semibold mb-3">Resources</h4><ul><li>Blog</li><li>Docs</li></ul></div>
+      <div><h4 class="font-semibold mb-3">Legal</h4><ul><li>Privacy</li><li>Terms</li></ul></div>
+    </div>
+    <p class="text-center text-xs text-gray-400 mt-12">© 2026 NovaFlow AI. Built with 💜 — v2.0.1</p>
+  </footer>
+
+  <button class="chat-widget fixed bottom-6 right-6 h-14 w-14 rounded-full bg-violet-600 text-white text-2xl shadow-lg shadow-violet-500/50 animate-[glow_3s_ease-in-out_infinite]">💬</button>
+</body>
+</html>
