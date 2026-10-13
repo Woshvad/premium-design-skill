@@ -1,6 +1,6 @@
 ---
 name: premium-design
-description: Presence-first rules for websites and app interfaces that a discerning buyer reads as high-end and that do not look AI-generated, via confident display scale, the subject as the hero, type and colour from the brand's own world, deep real content and clean craft, ranked by how many independent creators state each decision. Includes a brief-to-ship workflow, the trope stacks and template sequences that make pages read as generated and their fixes, context switches (marketing, product UI, dashboards, docs, venues, luxury, native iOS/macOS), slop_check.py for code-level tells and render_check.py for rendered checks and screenshots. Use when building, designing or restyling a website, landing page, app screen, dashboard or component (HTML, CSS, Tailwind, React, SwiftUI), or when asked to make UI premium, modern, polished, Apple-like or not AI-looking, or to review UI for AI slop. Not for posters, packaging, social or print graphics (blind tests showed its rules hurt there), or for logic or data changes.
+description: Presence-first rules for websites and app interfaces that read as high-end and do not look AI-generated, via confident display scale, the subject as the hero, type and colour from the brand's own world, deep real content and clean craft, ranked by how many independent creators state each decision. Includes a brief-to-ship workflow, the trope stacks and template sequences that read as generated and their fixes, context switches (marketing, product UI, dashboards, docs, venues, luxury, native iOS/macOS), slop_check.py and render_check.py. Use when building, designing or restyling a website, landing page, app screen, dashboard or component (HTML, CSS, Tailwind, React, SwiftUI), when asked to make UI premium, modern, polished, Apple-like or not AI-looking, to review UI for AI slop, or for a photo-led social sales post (product photo, name, price, order line). Not for other posters or social graphics, packaging, identity or print (blind tests showed it hurt there) or logic or data changes.
 ---
 
 # Premium design
@@ -111,6 +111,7 @@ Then run the swap test (could a competitor's logo sit on it?) and the squint tes
 - **"Make it Apple-like"**: the principles (product large on a matched field, one action colour, few words, drastic whitespace), never the costume (SF on the web, Apple blue, Apple taglines); apple-playbook.md §14.
 - **No photography** (synthesis): software gets 2-4 faithful renders of its real surfaces with real commands, states and arithmetic in the platform's chrome [6]; a physical product is drawn as a coveted object with true proportions, one light source, material cues and real label type, set in a scene that carries its promise. A lit front elevation beats an isometric build from CSS boxes, which reads as a toy. Say that commissioned photography replaces it (imagery-copy-brand.md §2).
 - **Dark theme**: only when the use scene argues for it [4]; a brand-tinted off-black; every ground step survives in dark (color.md §12).
+- **Social sales post** (synthesis, one blind test; Instagram, WhatsApp status): one photo of the product at its best fills the canvas (owned, or a generated serving shot checked against real reference photos), and the copy sits on that photo's own empty surface. The display line is the product's name as buyers say it, with the brand's sentence and one facts line under it. A solid order bar holds the channel, the number and the price with its unit. Text 34px or more on a 1080 canvas (the 12px floor at phone size). Render the fixed canvas, not the 320-1440 sweep. Packaging, pack sizes and prices are never invented. Other posters and social graphics, packaging, identity and print stay out of scope (imagery-copy-brand.md §10).
 
 ## 7. Pre-ship checklist
 
@@ -136,6 +137,7 @@ Then run the swap test (could a competitor's logo sit on it?) and the squint tes
 | Palette from the world, emotion vs novelty, committed colour, dark | [color.md](references/color.md) §1, §4, §7, §9, §12, C3, C18 |
 | Whitespace, hierarchy levers, layout variety, dead columns | [layout-spacing-hierarchy.md](references/layout-spacing-hierarchy.md) §1, §3, §5-6, §9 |
 | Hero, imagery, products drawn in code, software renders | [imagery-copy-brand.md](references/imagery-copy-brand.md) §2-3 |
+| Photo-led social sales posts (Instagram, WhatsApp) | [imagery-copy-brand.md](references/imagery-copy-brand.md) §10 |
 | States, buttons, radius, elevation, forms, charts | [components-details.md](references/components-details.md) |
 | Timing, easing, signature motion, scroll stories | [motion.md](references/motion.md) §1, §4, §7-8 |
 | Every tell, the looks table, squint and swap tests | [ai-tells.md](references/ai-tells.md) |

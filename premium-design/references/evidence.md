@@ -150,6 +150,14 @@ The skill was tested the way it asks you to test pages: built, rendered and judg
 
 V2 was the most consistent (1st or 2nd in 6 of 8 judgements) at a third of V1's length. V3's "replace, don't retreat" rule and presence baseline were grafted into it. Caveats: 7 briefs and 11 judgements in total are a small sample, judges were themselves models, and the round 2 rubric named the AI trope stacks explicitly, which favours any build that avoids them. Treat the numbers as directional. Test pages, screenshots and judge notes were kept with the research materials; they are not part of the skill.
 
+**Graphic design.** A separate graphic-design mode (posters, packaging, social, print) won 3 of 24 blind votes against no skill over three rounds. It is not shipped. Photo-led social sales posts were later tested on their own and are covered (below).
+
+**Social sales posts** (one brand, four 1080x1350 Instagram/WhatsApp flyers for Nigerian foods, model judges with two lenses: a creative director and a phone-scrolling customer; 9 judgements per round):
+- **Round 1:** compared the brand's original illustrated flyers with two photo-led rebuilds: a framed photo between cream bands, and a full-bleed photo with the copy on its own surface. The full-bleed version came first in all 9 judgements. Mean overall: full-bleed 7.3, framed 6.3, original 3.1. Appetite: 7.3, 6.6 and 1.6. Offer clarity was the one score the originals led (original 7.6, framed 7.1, full-bleed 6.9), so round 2 targeted it.
+- **Round 2:** compared the round 1 winner side by side with a revision (the product name as display, one facts line, a larger order bar with a WhatsApp mark). The revision won 8 of 9. Means: overall 6.9 vs 5.8, offer clarity 7.9 vs 5.8, food accuracy equal at 5.9. Scores are relative within a round; the same winner had scored 7.3 in round 1.
+
+There was no no-skill baseline: the test supports the layout over the brand's originals, not a skill-vs-no-skill win. The remaining faults were in the generated food (wrong regional textures) and a missing pack size; they are recorded as rules in imagery-copy-brand.md §10. One brand and 18 model judgements are a small sample.
+
 ## Source index
 
 | id | Type | Set | Source | Creator | Quality |

@@ -603,7 +603,7 @@ def severity_for(weight):
 
 SEV_ORDER = {'high': 0, 'med': 1, 'low': 2}
 
-# Surface type pinned in the brief (SKILL.md section 7). Set by --surface; product, dashboard and native relax the
+# Surface type pinned in the brief (SKILL.md section 6). Set by --surface; product, dashboard and native relax the
 # rules the research scopes to brand/marketing surfaces (default font, 13-15px UI text, status badges over titles).
 SURFACES = ('marketing', 'product', 'dashboard', 'native')
 SURFACE = 'marketing'
@@ -4559,7 +4559,7 @@ def main(argv=None):
                'in any of the files it was derived from.')
     ap.add_argument('paths', nargs='*', help='files or directories')
     ap.add_argument('--surface', choices=SURFACES, default='marketing',
-                    help='surface type pinned in the brief (SKILL.md section 7); product, dashboard and native '
+                    help='surface type pinned in the brief (SKILL.md section 6); product, dashboard and native '
                          'allow one neutral sans, 13-15px UI text and status badges over titles (default: marketing)')
     ap.add_argument('--json', action='store_true', help='machine-readable output')
     ap.add_argument('--min-severity', choices=['low', 'med', 'high'], default='low', help='hide findings below this')

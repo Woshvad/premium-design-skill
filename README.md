@@ -14,6 +14,7 @@ When you ask Claude Code to build or restyle a website, landing page, app screen
 - **Evidence-ranked rules with real numbers** for spacing, type scale, tracking, colour, contrast, motion and components. Each rule is tagged with how many creators back it, e.g. `[16]`.
 - **The AI "trope stacks" to avoid**, such as purple gradients, pill eyebrows, icon-card grids and the "AI editorial luxury" kit. For each one it gives a stronger brand-specific move instead of a blander one.
 - **Context switches** for marketing pages, product UI, dense dashboards, docs, local venues, luxury brands and native iOS/macOS.
+- **Photo-led social sales posts** (Instagram, WhatsApp): the one kind of graphic it covers. See [Graphic design](#graphic-design-one-narrow-exception) below.
 - **Two checkers:**
   - `scripts/slop_check.py` scans HTML/CSS/JSX for code-level AI tells.
   - `scripts/render_check.py` renders the page in headless Chrome or Edge from 320px to 1440px. It fails overflow, illegible text and broken H1s, and saves first-viewport and full-page screenshots.
@@ -90,13 +91,28 @@ The lean version shipped, with the two-pass variant's best rule grafted in.
 
 **Caveats.** The judges were models too, and the sample is small: 7 web briefs and 11 judgements. The round 2 rubric named the AI trope stacks explicitly, which favours any build that avoids them. Treat the numbers as directional.
 
-## Not for graphic design
+## Graphic design: one narrow exception
 
 A graphic-design mode was researched separately: 36 more videos and 35 articles on posters, grids, packaging, branding, social and print. It was built and tested in three blind rounds against Claude with no skill. **The skill versions won only 3 of 24 judge votes.** Without guidance, Claude found better concepts from the brief's own facts, such as a venue's floor plan or a calendar of every market Saturday. The rule-guided versions reached for the category's stock image or over-rendered objects.
 
-So the skill excludes posters, packaging, social and print graphics. The graphic-design research is still included as a reference for critique, not as a recipe: [`research/RANKED-GRAPHIC-DECISIONS.md`](research/RANKED-GRAPHIC-DECISIONS.md).
+So the skill still excludes posters, other social graphics, packaging, identity and print. The graphic-design research is included as a reference for critique, not as a recipe: [`research/RANKED-GRAPHIC-DECISIONS.md`](research/RANKED-GRAPHIC-DECISIONS.md).
 
 ![Graphic design blind test: the no-skill baseline won](docs/images/graphics-chocolate-wrapper.png)
+
+**The skill now covers one narrow case: photo-led social sales posts** (one product photo, its name, a price and how to order). A real project redid a Nigerian food brand's four Instagram/WhatsApp flyers, replacing flat illustrations with art-directed, AI-generated food photos. Blind model judges scored them, as agents given two lenses: a creative director and a customer scrolling on a phone.
+- **Round 1:** one full-bleed photo with the copy on its own surface came first in all 9 judgements. It scored 7.3/10 overall, against 6.3 for a framed-photo version and 3.1 for the original flyers. The originals still led on offer clarity.
+- **Round 2:** a revision applying the judges' fixes won 8 of 9. The fixes were the product name at display size, one facts line and a bigger order bar. Offer clarity scored 7.9 against 5.8.
+
+The lessons are now a context switch in the skill and a section in [`imagery-copy-brand.md` §10](premium-design/references/imagery-copy-brand.md):
+- the photo is the canvas
+- the name buyers use is the headline
+- one facts line
+- a solid order bar
+- text 34px or more on a 1080 canvas
+- generated food checked against real reference photos
+- no invented packaging or pack sizes
+
+There was no no-skill comparison: the test shows this layout beats the brand's originals, not that the skill beats no skill. It is one brand and 18 model judgements, so treat it as directional.
 
 ## Repository contents
 

@@ -81,7 +81,7 @@
 - **Series: lock two variables** [1★]. In a multi-piece series, fix exactly two things (for example type position and a shared accent) and let subject, crop, layout and type style vary. Consistency comes from shared behaviour, not identical pieces.
 - **Your own logo as inline SVG** [1★]. It stays crisp and can take CSS. Partner and customer logos stay images.
 - **No logo supplied** (synthesis): derive the wordmark from the signature move (a stamped or engraved mark, a ruled line, a plotted trace) and use it in the header and the favicon. A product-category pictogram beside the name in the text face is a placeholder, and a wordmark treatment must never match an interactive affordance (an underline reads as a link).
-- **Luxury marks** [1★], for fashion and luxury briefs only: a wordmark in a clean, often thin serif, set in caps, with no icon, in black or white (white over dark imagery). One option, not the default: combined with B&W chrome, a square black CTA and a centred product on a grey sweep it becomes the category template (SKILL.md section 7).
+- **Luxury marks** [1★], for fashion and luxury briefs only: a wordmark in a clean, often thin serif, set in caps, with no icon, in black or white (white over dark imagery). One option, not the default: combined with B&W chrome, a square black CTA and a centred product on a grey sweep it becomes the category template (SKILL.md section 6).
 
 ## 5. AI tells in copy and imagery
 
@@ -164,12 +164,47 @@ Imagery:
 - **Clean background plate** [1★]. Generate the art plate with all logos, nav and text removed, and give the coding agent the reference plus the plate so the UI is built in real code over a real image.
 - **Specific historical sources beat AI clichés** [1★]. Collaged vintage scientific plates or archival ephemera read as handmade and ownable.
 
+## 10. Social sales posts (photo-led)
+
+**Scope and evidence** (synthesis). This section covers posts whose job is to sell one product with a photo, a price and an order channel (Instagram feed, WhatsApp status). Other posters and social graphics (event announcements, illustrated or typographic posters), packaging, identity and print stay out of scope: a separate graphic-design mode won 3 of 24 blind votes against no skill. Every rule below is synthesis from one test.
+- **Material:** a Nigerian food brand's four 1080x1350 flyers, judged blind by model judges (agents given two lenses: a creative director and a customer scrolling on a phone).
+- **Round 1:** a full-bleed photo with the copy on its own surface beat the brand's original illustrated flyers and a framed-photo variant in all 9 judgements (overall 7.3 vs 6.3 vs 3.1). The originals still led on offer clarity.
+- **Round 2:** a revision adding the name, facts-line and order-bar rules below, all taken from round 1 judge notes, beat the round 1 winner in 8 of 9 (offer clarity 7.9 vs 5.8).
+
+There was no no-skill baseline, so the test supports this layout over the originals, not a skill-vs-no-skill win. Treat it as directional.
+
+**The layout that won** (after round 2)
+- **One photo is the canvas.** A single art-directed shot fills the post: the product at its best (the dish served, not the bag). It sits in the upper half, and the lower 35-40% is clean, empty surface, so the copy sits on the photo's own tabletop. A soft gradient of that surface colour behind the copy holds 4.5:1 over any highlights. A framed photo between cream bands lost to it every time.
+- **A range is one set.** Each product gets its own surface colour, taken from what it is made of (leaf green, sorghum red, cocoa brown, maize yellow), under one camera angle and one light, so the profile grid reads as a set.
+- **The name buyers ask for is the display line** (about 110-132px on 1080; the test used 132px, shrunk to fit long names), with the brand's sentence as a lead under it. A product name hidden in a small tracked eyebrow vanished at phone size, and every round 2 judge flagged it.
+- **One facts line, not a three-column bullet row.** The row read as a template, wrapped into orphans and repeated the headline.
+- **A solid order bar:**
+  - the channel icon with an action label ("WhatsApp or call to order")
+  - the number at 64-70px in tabular figures
+  - the price in the display face, on the number's baseline
+  - the unit and the delivery line on one shared baseline
+- **The logo sits on a calm patch of the photo.** No horizon line, prop or steam crosses it.
+
+**Phone size.** Posts are seen about 390px wide (0.36x), so the skill's 12px floor means about 34px on a 1080 canvas. Labels, units and facts set at 18-26px were flagged by nearly every judge, and the final 29-31px lines were still called small. Aim for 34px or more, and check a 390px render.
+
+**Rendering.** Render the fixed canvas in headless Chrome at 1080x1350 with device scale 2, and review a 390px-wide downscale. render_check.py's 320-1440 sweep and the web-only checklist items (scroll, targets, states) do not apply; slop_check.py still does.
+
+**Offer completeness.** A price needs its unit. "Per pack" with no size drew a pack-size question from every judge of those flyers (typically "how many kg?"). Never invent pack sizes, packaging, claims or prices: ask, and show the real pack if the client supplies a photo.
+
+**Generated food.**
+- In this test the image model produced the wrong version of regional dishes: whole beans for gbegiri (a smooth bean purée), falafel-like patties for akara, mashed-potato texture for pap, chopped leaves for ewedu. Expect the same for other cultural objects (an extrapolation).
+- Name the texture in the prompt ("completely smooth purée, no whole beans"), get reference photos from the client and check every item before layout.
+- Patterned light (leaf, palm or blind shadows, golden-hour stripes) on a seamless sweep reads as stock AI light: use one soft, even window light with no pattern.
+- Fix wrong food by regenerating it, not by retouching. Hand-built inpainting left seams and ghost grains that a full-resolution review caught.
+- Keep all text out of the generated image; set the type in HTML/CSS and render at 2x.
+- A generated serving shot shows what the product makes, never the product itself or its pack (C2).
+
 ---
 
 ## Context rules (conflict resolutions)
 
 - **C1 Which image for which role.** Default: isolated cut-outs on a matched sweep for product, catalogue and detail views. Use one art-directed scene per section (product in use, the place, real people) for hero and campaign moments. Grade all of them as one set. For software, real UI screenshots replace product photography.
-- **C2 Generated imagery.** Default: owned photography or real screenshots. Use generated images only for atmosphere or as comps before a shoot. Never use them to depict the actual product, real customers, results or the team. Replace them with owned photography before a premium launch.
+- **C2 Generated imagery.** Default: owned photography or real screenshots. Use generated images only for atmosphere or as comps before a shoot. Never use them to depict the actual product, real customers, results or the team. Replace them with owned photography before a premium launch. Exception: a social sales post (§10) may use a generated serving shot of what the product makes, checked against reference photos; never the product or pack itself.
 - **C3 Hero structure.** Let the star decide. For a physical product or place with strong imagery, use a centred product-led hero, or a full-bleed image with overlaid text on an art-directed calm area with a verified scrim. For software or services, use a left-aligned text stack on the shared page edge with a real product visual. A split is fine once its template parts are gone (badge row, stat row, ghost "Watch demo") and its visual owns a full-height scene panel; a product floating on the page ground beside a text stack is the copy-left/image-right template (synthesis). Overlapping type and product is a once-per-site signature, not a default. Untreated text on a busy photo is the template look.
 - **C4 Type or product as the biggest thing.** One star per view. A visually strong product is the largest element. Type becomes the star only when there is no strong visual (services, abstract software, a name reveal). Make type huge because it is the subject, never to fill space.
 - **C5 Specific headline or short tagline.** For an unknown brand or product, specificity wins: the headline (or the headline plus one line) says what it is and what it achieves. Short evocative fragments only work when the visitor already knows the category (established brand, product named in an eyebrow), and even then they need a plain descriptive subline. Never use formula triads, "Not X. Just Y." or em-dash punchlines.
